@@ -6,7 +6,7 @@
 /*   By: llelias <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 09:16:06 by llelias           #+#    #+#             */
-/*   Updated: 2019/01/11 10:59:26 by llelias          ###   ########.fr       */
+/*   Updated: 2019/01/12 15:31:27 by llelias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		get_next_line(int fd, char **line)
 {
 	static char	*f[MAX_FD];
 
-	if (fd < 0 || line == NULL || fd >= MAX_FD)
+	if (fd < 0 || line == NULL || fd >= MAX_FD || read(fd, *f, 0) < 0)
 		return (-1);
 	if (!f[fd])
 		f[fd] = ft_strnew(0);
